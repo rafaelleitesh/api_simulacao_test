@@ -37,14 +37,13 @@ public class SimulacoesClient {
             then().log().all();
     }
 
-    public Simulacao retornaSimulacao(String cpf) {
+    public ValidatableResponse retornaSimulacao(String cpf) {
         return
             given().
                 pathParam("cpf", cpf).
             when().
                 get("/v1/simulacoes/{cpf}").
-            then().log().all().
-                extract().body().as(Simulacao.class);
+            then().log().all();
     }
 
 }

@@ -3,7 +3,6 @@ package simulacoes;
 import clients.SimulacoesClient;
 import io.restassured.response.ValidatableResponse;
 import model.Simulacao;
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
