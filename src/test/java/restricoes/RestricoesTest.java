@@ -13,7 +13,7 @@ public class RestricoesTest {
     RestricoesClient restricoesClient;
 
     @Before
-    public void inicializaClient() {
+    public void inicializaRestricoesClient() {
         restricoesClient = new RestricoesClient();
     }
 
