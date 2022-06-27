@@ -46,4 +46,13 @@ public class SimulacoesClient {
             then().log().all();
     }
 
+    public ValidatableResponse removeSimulacao(Integer id) {
+        return
+            given().
+                pathParam("id", id).
+            when().
+                delete("/v1/simulacoes/{id}").
+            then().log().all();
+    }
+
 }
