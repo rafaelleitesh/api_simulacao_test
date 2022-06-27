@@ -10,11 +10,11 @@ public class Simulacao {
     private String nome;
     private String cpf;
     private String email;
-    private Integer valor;
+    private BigDecimal valor;
     private Integer parcelas;
     private Boolean seguro;
 
-    public Simulacao(String nome, String cpf, String email, Integer valor, Integer parcelas, Boolean seguro) {
+    public Simulacao(String nome, String cpf, String email, BigDecimal valor, Integer parcelas, Boolean seguro) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -35,7 +35,7 @@ public class Simulacao {
         return email;
     }
 
-    public Integer getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 

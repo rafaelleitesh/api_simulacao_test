@@ -26,13 +26,24 @@ public class SimulacoesClient {
             then().log().all();
     }
 
+    public ValidatableResponse alterarSimulacao(String cpf, Simulacao simulacao) {
+        return
+            given().
+                pathParam("cpf", cpf).
+                contentType(ContentType.JSON).
+                body(simulacao).
+            when().
+                put("/v1/simulacoes/{cpf}").
+            then().log().all();
+    }
+
     public Simulacao retornaSimulacao(String cpf) {
         return
             given().
                 pathParam("cpf", cpf).
             when().
                 get("/v1/simulacoes/{cpf}").
-            then().
+            then().log().all().
                 extract().body().as(Simulacao.class);
     }
 

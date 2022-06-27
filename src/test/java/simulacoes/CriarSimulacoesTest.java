@@ -9,6 +9,8 @@ import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.hamcrest.CoreMatchers.is;
 
 public class CriarSimulacoesTest {
@@ -21,13 +23,13 @@ public class CriarSimulacoesTest {
     }
 
     @Test
-    public void criarNovaSimulacaoValida() {
+    public void criarNovaSimulacaoValidaValorMinETrue() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678906", "rafael@email.com", 1000, 2, true);
+                ("Rafael", "12345678996", "rafael@email.com", new BigDecimal(1000), 2, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_CREATED));
         response.body("nome", is("Rafael"));
-        response.body("cpf", is("12345678906"));
+        response.body("cpf", is("12345678996"));
         response.body("email", is("rafael@email.com"));
         response.body("valor", is(1000));
         response.body("parcelas", is(2));
@@ -35,9 +37,23 @@ public class CriarSimulacoesTest {
     }
 
     @Test
+    public void criarNovaSimulacaoValidaValorMaxEFalse() {
+        Simulacao simulacao = new Simulacao
+                ("Rafael", "12345678977", "rafael@email.com", new BigDecimal(40000), 48, false);
+        ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
+        response.statusCode(is(HttpStatus.SC_CREATED));
+        response.body("nome", is("Rafael"));
+        response.body("cpf", is("12345678977"));
+        response.body("email", is("rafael@email.com"));
+        response.body("valor", is(40000));
+        response.body("parcelas", is(48));
+        response.body("seguro", is(false));
+    }
+
+    @Test
     public void criarNovaSimulacaoComCPFJaCadastrado() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678904", "rafael@email.com", 20000, 26, true);
+                ("Rafael", "12345678904", "rafael@email.com", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("mensagem", is("CPF duplicado"));
@@ -46,7 +62,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComCPFVazio() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", null, "rafael@email.com", 20000, 26, true);
+                ("Rafael", null, "rafael@email.com", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.cpf", is("CPF não pode ser vazio"));
@@ -55,7 +71,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComCPFInvalido() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "XXXXX12345", "rafael@email.com", 20000, 26, true);
+                ("Rafael", "XXXXX12345", "rafael@email.com", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_NOT_ACCEPTABLE));
     }
@@ -63,7 +79,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComNomeVazio() {
         Simulacao simulacao = new Simulacao
-                (null, "12345678907", "rafael@email.com", 20000, 26, true);
+                (null, "12345678907", "rafael@email.com", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.nome", is("Nome não pode ser vazio"));
@@ -72,7 +88,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComNomeInvalido() {
         Simulacao simulacao = new Simulacao
-                ("123154335 1235235", "12345678908", "rafael@email.com", 20000, 26, true);
+                ("123154335 1235235", "12345678908", "rafael@email.com", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_NOT_ACCEPTABLE));
     }
@@ -80,7 +96,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComEmailVazio() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678907", null, 20000, 26, true);
+                ("Rafael", "12345678907", null, new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.email", is("E-mail não deve ser vazio"));
@@ -89,7 +105,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComEmailInvalido() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678907", "emailinvalido", 20000, 26, true);
+                ("Rafael", "12345678907", "emailinvalido", new BigDecimal(1000), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.email", is("E-mail deve ser um e-mail válido"));
@@ -107,7 +123,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComValorMenor() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678908", "rafael@email.com", 999, 26, true);
+                ("Rafael", "12345678908", "rafael@email.com", new BigDecimal(999), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.valor", is("Valor deve ser maior ou igual a R$ 1.000"));
@@ -116,7 +132,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComValorMaior() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678908", "rafael@email.com", 40001, 26, true);
+                ("Rafael", "12345678908", "rafael@email.com", new BigDecimal(40000.01), 26, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.valor", is("Valor deve ser menor ou igual a R$ 40.000"));
@@ -125,7 +141,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComParcelaVazio() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678908", "rafael@email.com", 20000, null, true);
+                ("Rafael", "12345678908", "rafael@email.com", new BigDecimal(1000), null, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.parcelas", is("Parcelas não pode ser vazio"));
@@ -134,7 +150,7 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComParcelaMenor() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678908", "rafael@email.com", 20000, 1, true);
+                ("Rafael", "12345678908", "rafael@email.com", new BigDecimal(1000), 1, true);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.parcelas", is("Parcelas deve ser igual ou maior que 2"));
@@ -143,20 +159,19 @@ public class CriarSimulacoesTest {
     @Test
     public void criarNovaSimulacaoComParcelaMaior() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678909", "rafael@email.com", 20000, 49, false);
+                ("Rafael", "12345678909", "rafael@email.com", new BigDecimal(1000), 49, false);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.parcelas", is("Parcelas deve ser menor ou igual a 48"));
     }
 
     @Test
-
-    // Não sei como enviar null para a entidade sem que ela reconheça o parâmetro como false!
+    // Não sei como enviar null para a entidade boolean sem que ela reconheça o parâmetro como false!
     // Tentei criar um construtor sem o parâmetro seguro (deixando-o vazio) e também reconheceu como false!
 
     public void criarNovaSimulacaoComSeguroVazio() {
         Simulacao simulacao = new Simulacao
-                ("Rafael", "12345678912", "rafael@email.com", 20000, 48, null);
+                ("Rafael", "12345678912", "rafael@email.com", new BigDecimal(1000), 48, null);
         ValidatableResponse response = simulacoesClient.criarSimulacao(simulacao);
         response.statusCode(is(HttpStatus.SC_BAD_REQUEST));
         response.body("erros.seguro", is("Uma das opções de Seguro devem ser selecionadas"));
