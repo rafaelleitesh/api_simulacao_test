@@ -1,0 +1,7 @@
+utils\CPFRandom.class
+model\Simulacao.class
+utils\NomeRandom.class
+commons\Base.class
+clients\SimulacoesClient.class
+utils\RangeNumeroRandom.class
+clients\RestricoesClient.class
