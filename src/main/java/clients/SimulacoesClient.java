@@ -4,11 +4,9 @@ import commons.Base;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import model.Simulacao;
-import org.apache.http.HttpStatus;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
+
 
 public class SimulacoesClient {
 
@@ -46,7 +44,7 @@ public class SimulacoesClient {
             then().log().all();
     }
 
-    public ValidatableResponse removeSimulacao(Integer id) {
+    public ValidatableResponse removeSimulacao(long id) {
         return
             given().
                 pathParam("id", id).

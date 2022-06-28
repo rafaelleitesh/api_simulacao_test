@@ -1,6 +1,9 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import utils.CPFRandom;
+import utils.NomeRandom;
+import utils.RangeNumeroRandom;
 
 import java.math.BigDecimal;
 
@@ -21,6 +24,43 @@ public class Simulacao {
         this.valor = valor;
         this.parcelas = parcelas;
         this.seguro = seguro;
+    }
+
+    public Simulacao() throws Exception {
+        String cpf = CPFRandom.geraCPFRandom();
+        String nome = NomeRandom.geraNome();
+
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = RangeNumeroRandom.geraNumeroRandom(1, 9999)+"@email.com";
+        this.valor = new BigDecimal(RangeNumeroRandom.geraNumeroRandom(1000, 40000));
+        this.parcelas = RangeNumeroRandom.geraNumeroRandom(2, 48);
+        this.seguro = RangeNumeroRandom.geraBoolRandom();
+    }
+
+    public Simulacao(BigDecimal valor, Integer parcelas, Boolean seguro) throws Exception {
+        String cpf = CPFRandom.geraCPFRandom();
+        String nome = NomeRandom.geraNome();
+
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = nome.substring(0, nome.indexOf(" "))+"@email.com";
+        this.valor = valor;
+        this.parcelas = parcelas;
+        this.seguro = seguro;
+    }
+
+    public Simulacao(String nome, String cpf, String email) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.valor = new BigDecimal(RangeNumeroRandom.geraNumeroRandom(1000, 40000));
+        this.parcelas = RangeNumeroRandom.geraNumeroRandom(2, 48);
+        this.seguro = RangeNumeroRandom.geraBoolRandom();
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getNome() {

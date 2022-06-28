@@ -5,8 +5,10 @@ import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
+import utils.CPFRandom;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertTrue;
 
 public class RestricoesTest {
 
@@ -19,21 +21,29 @@ public class RestricoesTest {
 
     @Test
     public void consultarCPFComRestricao() {
-        ValidatableResponse response = restricoesClient.retornaRestricaoCPF("97093236014");
+        String cpf = CPFRandom.geraCPFComRestricaoRandom();
+        ValidatableResponse response = restricoesClient.retornaRestricaoCPF(cpf);
         response.statusCode(is(HttpStatus.SC_OK));
-        response.body("mensagem", is("O CPF 97093236014 possui restrição"));
+        response.body("mensagem", is("O CPF "+cpf+" possui restrição"));
     }
 
     @Test
-    public void consultarCPFSemRestricao() {
-        ValidatableResponse response = restricoesClient.retornaRestricaoCPF("99999999999");
+    //Há uma chance muito pequena do CPF gerado coincidir com um CPF restrito, em caso de falha comparar o gerado a lista de restritos
+    public void consultarCPFSemRestricao() throws Exception {
+        String cpf = CPFRandom.geraCPFRandom();
+        ValidatableResponse response = restricoesClient.retornaRestricaoCPF(cpf);
         response.statusCode(is(HttpStatus.SC_NO_CONTENT));
     }
 
     @Test
     public void consultarCPFVazio() {
-        ValidatableResponse response = restricoesClient.retornaRestricaoCPF("");
-        response.statusCode(is(HttpStatus.SC_NOT_ACCEPTABLE));
+        boolean error = false;
+        try {
+            restricoesClient.retornaRestricaoCPF(null);
+        } catch (IllegalArgumentException exception) {
+            error = true;
+        }
+        assertTrue(error);
     }
 
     @Test
