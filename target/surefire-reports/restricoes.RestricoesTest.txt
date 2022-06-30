@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: restricoes.RestricoesTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.983 sec <<< FAILURE!
-consultarCPFInvalido(restricoes.RestricoesTest)  Time elapsed: 1.654 sec  <<< FAILURE!
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 4.789 sec <<< FAILURE!
+consultarCPFInvalido(restricoes.RestricoesTest)  Time elapsed: 2.276 sec  <<< FAILURE!
 java.lang.AssertionError: 1 expectation failed.
 Expected status code is <406> but was <204>.
 
@@ -35,7 +35,7 @@ Expected status code is <406> but was <204>.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:84)
-	at restricoes.RestricoesTest.consultarCPFInvalido(RestricoesTest.java:52)
+	at restricoes.RestricoesTest.consultarCPFInvalido(RestricoesTest.java:51)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -67,11 +67,11 @@ Expected status code is <406> but was <204>.
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-consultarCPFComRestricao(restricoes.RestricoesTest)  Time elapsed: 1.094 sec  <<< FAILURE!
+consultarCPFComRestricao(restricoes.RestricoesTest)  Time elapsed: 1.277 sec  <<< FAILURE!
 java.lang.AssertionError: 1 expectation failed.
 JSON path mensagem doesn't match.
-Expected: is "O CPF 84809766080 possui restrição"
-  Actual: O CPF 84809766080 tem problema
+Expected: is "O CPF 55856777050 possui restrição"
+  Actual: O CPF 55856777050 tem problema
 
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)

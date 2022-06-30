@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="2" name="simulacoes.CriarSimulacoesTest" time="1.125" errors="0" skipped="3">
+<testsuite tests="16" failures="4" name="simulacoes.CriarSimulacoesTest" time="1.241" errors="0" skipped="2">
   <properties>
     <property name="idea.version" value="2021.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,8 +64,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFVazio" time="0.031"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaMaior" time="0.063">
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFVazio" time="0"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaMaior" time="0.004">
     <failure message="1 expectation failed.
 Expected status code is &lt;400&gt; but was &lt;201&gt;.
 " type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
@@ -92,7 +92,7 @@ Expected status code is &lt;400&gt; but was &lt;201&gt;.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:84)
-	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComParcelaMaior(CriarSimulacoesTest.java:173)
+	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComParcelaMaior(CriarSimulacoesTest.java:172)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -124,40 +124,31 @@ Expected status code is &lt;400&gt; but was &lt;201&gt;.
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
-    <system-out>CPF Gerado 167.439.898-00
+    <system-out>CPF Gerado 467.615.976-50
 HTTP/1.1 201 
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Tue, 28 Jun 2022 18:30:31 GMT
+Date: Thu, 30 Jun 2022 02:40:41 GMT
 
 {
     &quot;id&quot;: 18,
-    &quot;nome&quot;: &quot;Ranae Okuneva&quot;,
-    &quot;cpf&quot;: &quot;167.439.898-00&quot;,
-    &quot;email&quot;: &quot;Ranae@email.com&quot;,
+    &quot;nome&quot;: &quot;Reynalda Kuphal PhD&quot;,
+    &quot;cpf&quot;: &quot;467.615.976-50&quot;,
+    &quot;email&quot;: &quot;Reynalda@email.com&quot;,
     &quot;valor&quot;: 20000,
     &quot;parcelas&quot;: 49,
     &quot;seguro&quot;: false
 }
 </system-out>
   </testcase>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaMenor" time="0.062"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaVazio" time="0.047"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFJaCadastrado" time="0.109"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFInvalido" time="0.109">
-    <skipped/>
-  </testcase>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoValidaValorMinETrue" time="0.157"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComSeguroVazio" time="0.157">
-    <skipped/>
-  </testcase>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComEmailVazio" time="0.031"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorMaior" time="0.047"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorMenor" time="0.031">
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaMenor" time="0.001"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComParcelaVazio" time="0"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFJaCadastrado" time="0.157"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComCPFInvalido" time="0.027">
     <failure message="1 expectation failed.
-Expected status code is &lt;400&gt; but was &lt;201&gt;.
+Expected status code is &lt;406&gt; but was &lt;201&gt;.
 " type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
-Expected status code is &lt;400&gt; but was &lt;201&gt;.
+Expected status code is &lt;406&gt; but was &lt;201&gt;.
 
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -180,7 +171,7 @@ Expected status code is &lt;400&gt; but was &lt;201&gt;.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:84)
-	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComValorMenor(CriarSimulacoesTest.java:137)
+	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComCPFInvalido(CriarSimulacoesTest.java:83)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -212,28 +203,186 @@ Expected status code is &lt;400&gt; but was &lt;201&gt;.
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
-    <system-out>CPF Gerado 643.344.897-61
+    <system-out>HTTP/1.1 201 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Thu, 30 Jun 2022 02:40:41 GMT
+
+{
+    &quot;id&quot;: 23,
+    &quot;nome&quot;: &quot;Invalido&quot;,
+    &quot;cpf&quot;: &quot;XXXXX12345&quot;,
+    &quot;email&quot;: &quot;invalido@email.com&quot;,
+    &quot;valor&quot;: 13904,
+    &quot;parcelas&quot;: 30,
+    &quot;seguro&quot;: false
+}
+</system-out>
+  </testcase>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoValidaValorMinETrue" time="0.227"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComSeguroVazio" time="0.227">
+    <skipped/>
+  </testcase>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComEmailVazio" time="0.082"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorMaior" time="0.066"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorMenor" time="0.078">
+    <failure message="1 expectation failed.
+Expected status code is &lt;400&gt; but was &lt;201&gt;.
+" type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code is &lt;400&gt; but was &lt;201&gt;.
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at sun.reflect.GeneratedMethodAccessor64.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:84)
+	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComValorMenor(CriarSimulacoesTest.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>CPF Gerado 905.934.047-77
 HTTP/1.1 201 
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Tue, 28 Jun 2022 18:30:32 GMT
+Date: Thu, 30 Jun 2022 02:40:42 GMT
 
 {
-    &quot;id&quot;: 26,
-    &quot;nome&quot;: &quot;Nathan Predovic&quot;,
-    &quot;cpf&quot;: &quot;643.344.897-61&quot;,
-    &quot;email&quot;: &quot;Nathan@email.com&quot;,
+    &quot;id&quot;: 27,
+    &quot;nome&quot;: &quot;Kathern Bechtelar&quot;,
+    &quot;cpf&quot;: &quot;905.934.047-77&quot;,
+    &quot;email&quot;: &quot;Kathern@email.com&quot;,
     &quot;valor&quot;: 999,
     &quot;parcelas&quot;: 26,
     &quot;seguro&quot;: true
 }
 </system-out>
   </testcase>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComEmailInvalido" time="0.063"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorVazio" time="0.046"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoValidaValorMaxEFalse" time="0.11"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComNomeVazio" time="0.031"/>
-  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComNomeInvalido" time="0.031">
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComEmailInvalido" time="0.039">
+    <failure message="1 expectation failed.
+JSON path erros.email doesn&apos;t match.
+Expected: is &quot;E-mail deve ser um e-mail válido&quot;
+  Actual: não é um endereço de e-mail
+" type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+JSON path erros.email doesn&apos;t match.
+Expected: is &quot;E-mail deve ser um e-mail válido&quot;
+  Actual: não é um endereço de e-mail
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at sun.reflect.GeneratedMethodAccessor64.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:270)
+	at io.restassured.specification.ResponseSpecification$body$0.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:117)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:244)
+	at simulacoes.CriarSimulacoesTest.criarNovaSimulacaoComEmailInvalido(CriarSimulacoesTest.java:119)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>HTTP/1.1 400 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Thu, 30 Jun 2022 02:40:42 GMT
+Connection: close
+
+{
+    &quot;erros&quot;: {
+        &quot;email&quot;: &quot;não é um endereço de e-mail&quot;
+    }
+}
+</system-out>
+  </testcase>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComValorVazio" time="0.071"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoValidaValorMaxEFalse" time="0.185"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComNomeVazio" time="0.038"/>
+  <testcase classname="simulacoes.CriarSimulacoesTest" name="criarNovaSimulacaoComNomeInvalido" time="0.039">
     <skipped/>
   </testcase>
 </testsuite>

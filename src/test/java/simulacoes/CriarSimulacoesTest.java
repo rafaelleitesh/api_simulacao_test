@@ -76,7 +76,6 @@ public class CriarSimulacoesTest {
     }
 
     @Test
-    @Ignore
     public void criarNovaSimulacaoComCPFInvalido() {
         Simulacao simulacao = new Simulacao
                 ("Invalido", "XXXXX12345", "invalido@email.com");
@@ -176,8 +175,6 @@ public class CriarSimulacoesTest {
 
     @Test
     @Ignore
-    // Não sei como enviar null para a entidade boolean sem que ela reconheça o parâmetro como false!
-    // Tentei criar um construtor sem o parâmetro seguro (deixando-o vazio) e também reconheceu como false!
     public void criarNovaSimulacaoComSeguroVazio() throws Exception {
         Simulacao simulacao = new Simulacao
                 (new BigDecimal(20000), 26, null);

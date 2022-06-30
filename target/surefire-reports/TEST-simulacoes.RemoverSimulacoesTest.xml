@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="simulacoes.RemoverSimulacoesTest" time="0" errors="0" skipped="2">
+<testsuite tests="2" failures="0" name="simulacoes.RemoverSimulacoesTest" time="0.001" errors="0" skipped="1">
   <properties>
     <property name="idea.version" value="2021.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -67,8 +67,5 @@
   <testcase classname="simulacoes.RemoverSimulacoesTest" name="removeSimulacaoNaoExistente" time="0">
     <skipped/>
   </testcase>
-  <testcase classname="simulacoes.RemoverSimulacoesTest" name="removeSimulacaoComIDVazio" time="0">
-    <skipped/>
-  </testcase>
-  <testcase classname="simulacoes.RemoverSimulacoesTest" name="removeSimulacaoValido" time="0"/>
+  <testcase classname="simulacoes.RemoverSimulacoesTest" name="removeSimulacaoValido" time="0.001"/>
 </testsuite>

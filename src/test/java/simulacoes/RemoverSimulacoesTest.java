@@ -8,7 +8,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertTrue;
 
 public class RemoverSimulacoesTest {
 
@@ -21,28 +20,15 @@ public class RemoverSimulacoesTest {
 
     @Test
     public void removeSimulacaoValido() {
-        ValidatableResponse response = simulacoesClient.removeSimulacao(17);
-        response.statusCode(is(HttpStatus.SC_OK));
+        ValidatableResponse resposta = simulacoesClient.removeSimulacao(17);
+        resposta.statusCode(is(HttpStatus.SC_OK));
     }
 
     @Test
     @Ignore
     public void removeSimulacaoNaoExistente() {
-        ValidatableResponse response = simulacoesClient.removeSimulacao(10);
-        response.statusCode(is(HttpStatus.SC_NOT_FOUND));
-    }
-
-    @Test
-    @Ignore
-    //Alterar parametro para null quando corrigido id para cpf
-    public void removeSimulacaoComIDVazio() {
-        boolean error = false;
-        try {
-            simulacoesClient.removeSimulacao(1);
-        } catch (IllegalArgumentException exception) {
-            error = true;
-        }
-        assertTrue(error);
+        ValidatableResponse resposta = simulacoesClient.removeSimulacao(10);
+        resposta.statusCode(is(HttpStatus.SC_NOT_FOUND));
     }
 
 }

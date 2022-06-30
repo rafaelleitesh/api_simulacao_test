@@ -33,40 +33,39 @@ public class ConsultarSimulacoesTest {
 
     @Test
     public void retornaSimulacaoPeloCPFValido() {
-        ValidatableResponse response = simulacoesClient.retornaSimulacao("17822386034");
-        response.statusCode(is(HttpStatus.SC_OK));
-        response.body("nome", is("Deltrano"));
-        response.body("cpf", is("17822386034"));
-        response.body("email", is("deltrano@gmail.com"));
-        response.body("valor", is(20000.0F));
-        response.body("parcelas", is(5));
-        response.body("seguro", is(false));
+        ValidatableResponse resposta = simulacoesClient.retornaSimulacao("17822386034");
+        resposta.statusCode(is(HttpStatus.SC_OK));
+        resposta.body("nome", is("Deltrano"));
+        resposta.body("cpf", is("17822386034"));
+        resposta.body("email", is("deltrano@gmail.com"));
+        resposta.body("valor", is(20000.0F));
+        resposta.body("parcelas", is(5));
+        resposta.body("seguro", is(false));
     }
 
     @Test
     public void retornaSimulacaoPeloCPFNaoCadastrado() throws Exception {
         String cpf = CPFRandom.geraCPFRandom();
-        ValidatableResponse response = simulacoesClient.retornaSimulacao(cpf);
-        response.statusCode(is(HttpStatus.SC_NOT_FOUND));
-        response.body("mensagem", is("CPF "+cpf+" não encontrado"));
+        ValidatableResponse resposta = simulacoesClient.retornaSimulacao(cpf);
+        resposta.statusCode(is(HttpStatus.SC_NOT_FOUND));
+        resposta.body("mensagem", is("CPF "+cpf+" não encontrado"));
     }
 
     @Test
     public void retornaSimulacaoPeloCPFVazio() {
-        boolean error = false;
+        boolean erro = false;
         try {
             simulacoesClient.retornaSimulacao(null);
         } catch (IllegalArgumentException exception) {
-            error = true;
+            erro = true;
         }
-        assertTrue(error);
+        assertTrue(erro);
     }
 
     @Test
-    @Ignore
     public void retornaSimulacaoPeloCPFInvalido() {
-        ValidatableResponse response = simulacoesClient.retornaSimulacao("XXXXXXXXXXX");
-        response.statusCode(is(HttpStatus.SC_NOT_ACCEPTABLE));
+        ValidatableResponse resposta = simulacoesClient.retornaSimulacao("XXXXXXXXXXX");
+        resposta.statusCode(is(HttpStatus.SC_NOT_ACCEPTABLE));
     }
 
 }

@@ -22,28 +22,27 @@ public class RestricoesTest {
     @Test
     public void consultarCPFComRestricao() {
         String cpf = CPFRandom.geraCPFComRestricaoRandom();
-        ValidatableResponse response = restricoesClient.retornaRestricaoCPF(cpf);
-        response.statusCode(is(HttpStatus.SC_OK));
-        response.body("mensagem", is("O CPF "+cpf+" possui restrição"));
+        ValidatableResponse resposta = restricoesClient.retornaRestricaoCPF(cpf);
+        resposta.statusCode(is(HttpStatus.SC_OK));
+        resposta.body("mensagem", is("O CPF " + cpf + " possui restrição"));
     }
 
     @Test
-    //Há uma chance muito pequena do CPF gerado coincidir com um CPF restrito, em caso de falha comparar o gerado a lista de restritos
     public void consultarCPFSemRestricao() throws Exception {
         String cpf = CPFRandom.geraCPFRandom();
-        ValidatableResponse response = restricoesClient.retornaRestricaoCPF(cpf);
-        response.statusCode(is(HttpStatus.SC_NO_CONTENT));
+        ValidatableResponse resposta = restricoesClient.retornaRestricaoCPF(cpf);
+        resposta.statusCode(is(HttpStatus.SC_NO_CONTENT));
     }
 
     @Test
     public void consultarCPFVazio() {
-        boolean error = false;
+        boolean erro = false;
         try {
             restricoesClient.retornaRestricaoCPF(null);
         } catch (IllegalArgumentException exception) {
-            error = true;
+            erro = true;
         }
-        assertTrue(error);
+        assertTrue(erro);
     }
 
     @Test

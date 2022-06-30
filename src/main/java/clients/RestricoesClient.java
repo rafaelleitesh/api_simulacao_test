@@ -11,12 +11,11 @@ public class RestricoesClient {
         Base.configInicial();
     }
 
-    public ValidatableResponse retornaRestricaoCPF (String cpf) {
-        return
-                given().
-                    pathParam("cpf", cpf).
+    public ValidatableResponse retornaRestricaoCPF(String cpf) {
+        return given().
+                pathParam("cpf", cpf).
                 when().
-                    get("/v1/restricoes/{cpf}").
+                get("/v1/restricoes/{cpf}").
                 then().log().all();
     }
 

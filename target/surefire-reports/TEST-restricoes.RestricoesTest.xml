@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="2" name="restricoes.RestricoesTest" time="3.889" errors="0" skipped="0">
+<testsuite tests="4" failures="2" name="restricoes.RestricoesTest" time="4.693" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,8 +64,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="restricoes.RestricoesTest" name="consultarCPFVazio" time="1.094"/>
-  <testcase classname="restricoes.RestricoesTest" name="consultarCPFInvalido" time="1.654">
+  <testcase classname="restricoes.RestricoesTest" name="consultarCPFVazio" time="1.109"/>
+  <testcase classname="restricoes.RestricoesTest" name="consultarCPFInvalido" time="2.276">
     <failure message="1 expectation failed.
 Expected status code is &lt;406&gt; but was &lt;204&gt;.
 " type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
@@ -100,7 +100,7 @@ Expected status code is &lt;406&gt; but was &lt;204&gt;.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:84)
-	at restricoes.RestricoesTest.consultarCPFInvalido(RestricoesTest.java:52)
+	at restricoes.RestricoesTest.consultarCPFInvalido(RestricoesTest.java:51)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -133,18 +133,18 @@ Expected status code is &lt;406&gt; but was &lt;204&gt;.
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
     <system-out>HTTP/1.1 204 
-Date: Tue, 28 Jun 2022 18:30:28 GMT
+Date: Thu, 30 Jun 2022 02:40:36 GMT
 </system-out>
   </testcase>
-  <testcase classname="restricoes.RestricoesTest" name="consultarCPFComRestricao" time="1.094">
+  <testcase classname="restricoes.RestricoesTest" name="consultarCPFComRestricao" time="1.277">
     <failure message="1 expectation failed.
 JSON path mensagem doesn&apos;t match.
-Expected: is &quot;O CPF 84809766080 possui restrição&quot;
-  Actual: O CPF 84809766080 tem problema
+Expected: is &quot;O CPF 55856777050 possui restrição&quot;
+  Actual: O CPF 55856777050 tem problema
 " type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
 JSON path mensagem doesn&apos;t match.
-Expected: is &quot;O CPF 84809766080 possui restrição&quot;
-  Actual: O CPF 84809766080 tem problema
+Expected: is &quot;O CPF 55856777050 possui restrição&quot;
+  Actual: O CPF 55856777050 tem problema
 
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -210,12 +210,12 @@ Expected: is &quot;O CPF 84809766080 possui restrição&quot;
     <system-out>HTTP/1.1 200 
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Tue, 28 Jun 2022 18:30:28 GMT
+Date: Thu, 30 Jun 2022 02:40:36 GMT
 
 {
-    &quot;mensagem&quot;: &quot;O CPF 84809766080 tem problema&quot;
+    &quot;mensagem&quot;: &quot;O CPF 55856777050 tem problema&quot;
 }
 </system-out>
   </testcase>
-  <testcase classname="restricoes.RestricoesTest" name="consultarCPFSemRestricao" time="0.047"/>
+  <testcase classname="restricoes.RestricoesTest" name="consultarCPFSemRestricao" time="0.031"/>
 </testsuite>

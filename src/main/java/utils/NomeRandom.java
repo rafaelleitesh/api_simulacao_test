@@ -6,8 +6,8 @@ public class NomeRandom {
 
 public static String geraNome() {
 
-    Faker faker = new Faker();
-    String nome = faker.name().fullName();
+    Faker geradorNome = new Faker();
+    String nome = geradorNome.name().fullName();
     return nome;
     }
 

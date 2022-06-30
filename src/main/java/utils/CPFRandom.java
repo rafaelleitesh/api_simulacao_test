@@ -17,7 +17,7 @@ public class CPFRandom {
     public static String geraCPFRandom() throws Exception{
 
         int digito1 = 0, digito2 = 0, resto = 0;
-        String  nDigResult;
+        String  nDigitoResultado;
         String numerosContatenados;
         String numeroGerado;
 
@@ -68,9 +68,9 @@ public class CPFRandom {
                 String.valueOf(n5) + String.valueOf(n6) +"."+ String.valueOf(n7) +String.valueOf(n8)  +
                 String.valueOf(n9)+"-";
 
-        nDigResult = String.valueOf(digito1) + String.valueOf(digito2);
+        nDigitoResultado = String.valueOf(digito1) + String.valueOf(digito2);
 
-        numeroGerado = numerosContatenados+nDigResult;
+        numeroGerado = numerosContatenados+nDigitoResultado;
 
         System.out.println("CPF Gerado " + numeroGerado);
 

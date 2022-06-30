@@ -31,7 +31,6 @@ public class AlterarSimulacoesTest {
     }
 
     @Test
-    @Ignore
     public void alterarSimulacaoCPFComRestricao() {
         String cpf = CPFRandom.geraCPFComRestricaoRandom();
         Simulacao simulacao = new Simulacao
@@ -42,8 +41,6 @@ public class AlterarSimulacoesTest {
     }
 
     @Test
-    //Remover comentario da comparacao de valor para verificar bug
-    //Linha comentada para não interferir em outros testes
     public void alterarSimulacaoCPFValido() throws Exception {
         Simulacao simulacao1 = new Simulacao();
         simulacoesClient.criarSimulacao(simulacao1);
@@ -53,7 +50,7 @@ public class AlterarSimulacoesTest {
         resposta.body("nome", is(simulacao2.getNome()));
         resposta.body("cpf", is(simulacao2.getCpf()));
         resposta.body("email", is(simulacao2.getEmail()));
-        //resposta.body("valor", is(1599));
+        resposta.body("valor", is(1599));
         resposta.body("parcelas", is(simulacao2.getParcelas()));
         resposta.body("seguro", is(simulacao2.getSeguro()));
 
@@ -85,7 +82,7 @@ public class AlterarSimulacoesTest {
         resposta.body("nome", is(simulacao1.getNome()));
         resposta.body("cpf", is(simulacao1.getCpf()));
         resposta.body("email", is(simulacao1.getEmail()));
-        //resposta.body("valor", is(1599));
+        resposta.body("valor", is(1599.0F));
         resposta.body("parcelas", is(simulacao1.getParcelas()));
         resposta.body("seguro", is(false));
 
